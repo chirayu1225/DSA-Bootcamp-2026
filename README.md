@@ -21,6 +21,7 @@ This repo is your single source of truth - study material, code examples, and pr
 |------|--------|
 | [Week 1](./Week-1/README.md) | Syntax & I/O, Time & Space Complexity, STL, Arrays, Sorting |
 | [Week 2](./Week-2/README.md) | Prefix Sum, Two Pointers, Binary Search, Strings |
+| [Week 3](./Week-3/README.md) | Recursion, Divide & Conquer, Hashing, Sliding Window |
 
 ---
 
