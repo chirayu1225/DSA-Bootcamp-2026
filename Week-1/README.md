@@ -55,6 +55,12 @@ Do problems alongside the topics. Don't save them all for the end.
 
 ---
 
+## Contest
+
+[View Contest 1 Problems](./Contest-1/README.md) - 6 problems covering syntax & I/O, arrays, sorting, and STL.
+
+---
+
 ## Suggested Daily Schedule
 
 | Day | Topics | Problems |

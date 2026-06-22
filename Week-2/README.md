@@ -53,6 +53,12 @@ Do problems alongside the topics. Don't save them all for the end.
 
 ---
 
+## Contest
+
+[View Contest 2 Problems](./Contest-2/README.md) - 6 problems covering prefix sums, two pointers, binary search, and strings.
+
+---
+
 ## Before You Move to Week 3
 
 - Can you build a prefix sum array and answer a range query in O(1)?
