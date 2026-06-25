@@ -60,4 +60,4 @@ Week 4
 
 ---
 
-[Previous: Week 2](../Week-2/README.md) | [Home](../README.md) | Next: Week 4 (Coming Soon)
+[Previous: Week 2](../Week-2/README.md) | [Home](../README.md) | [Next: Week 4](../Week-4/README.md)

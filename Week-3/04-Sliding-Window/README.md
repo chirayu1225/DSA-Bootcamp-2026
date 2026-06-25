@@ -178,4 +178,4 @@ A problem is likely a sliding window problem if:
 
 ---
 
-[Previous: Hashing](../03-Hashing/README.md) | [Week 3 Overview](../README.md) | Next: Week 4 (Coming Soon)
+[Previous: Hashing](../03-Hashing/README.md) | [Week 3 Overview](../README.md) | [Next: Week 4](../../Week-4/README.md)
