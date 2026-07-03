@@ -538,7 +538,7 @@ class RangeBitQuery:
 
 ## Pattern 6: Arithmetic Operator Restrictions (Bitwise Math Emulation) 
 
-This pattern focuses on performing standard arithmetic operations—such as addition, multiplication, division, or exponentiation—without using traditional mathematical operators. 
+This pattern focuses on performing standard arithmetic operations-such as addition, multiplication, division, or exponentiation-without using traditional mathematical operators. 
 
 Example: Dividing Two Integers without `*` , `/` , or `%` 
 

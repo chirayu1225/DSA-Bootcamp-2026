@@ -1,5 +1,11 @@
 # Tree Data Structure
 
+[Home](../../README.md) > [Week 5](../README.md) > Trees
+
+> Week 5 · Topic 1 of 4 · Prerequisites: [Linked List](../../Week-4/01-LinkedList/README.md), [Recursion](../../Week-3/01-Recursion/README.md)
+
+---
+
 ## Why This Topic Now
 
 Arrays and linked lists are linear - data sits in a sequence. Trees break that constraint. A tree lets you represent hierarchical relationships: file systems, organisation charts, HTML DOM, decision trees. Almost every advanced data structure (heaps, BSTs, tries, segment trees) is a tree underneath. Understanding the general tree first makes all of them easier.
@@ -8,7 +14,7 @@ Arrays and linked lists are linear - data sits in a sequence. Trees break that c
 
 A tree is a **non-linear**, hierarchical data structure of nodes connected by edges, where every node except the root has exactly one parent.
 
-![Tree Diagram](./images/trees.png)
+![Tree Diagram](./trees.png)
 
 ### Key Terms
 
@@ -309,6 +315,12 @@ def print_degree(node, parent):
 - Can you write `search()` without looking at your notes?
 - What is the degree of the root node in the example tree?
 
+---
+
 ## Resources
 
 - [Tree Data Structure - GeeksforGeeks](https://www.geeksforgeeks.org/dsa/introduction-to-tree-data-structure/)
+
+---
+
+[Week 5 Overview](../README.md) | [Next: Greedy Algorithms](../02-Greedy/README.md)

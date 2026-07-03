@@ -51,6 +51,12 @@ Week 4
 
 ---
 
+## Contest
+
+[View Contest 3 Problems](./Contest-3/README.md) - 6 problems covering recursion, divide & conquer, hashing, and sliding window.
+
+---
+
 ## Before You Move to Week 4
 
 - Can you write a recursive function and identify its base case?

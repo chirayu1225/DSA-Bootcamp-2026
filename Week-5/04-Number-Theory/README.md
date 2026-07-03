@@ -1,45 +1,45 @@
-# **Number Theory**
+# Number Theory
 
-### **1. Sieve of Eratosthenes**
+[Home](../../README.md) > [Week 5](../README.md) > Number Theory
 
-The **Sieve of Eratosthenes** is a preprocessing technique that, in a single
-pass over the range `[2, n]`, determines which numbers are prime and-if a
-number is composite-records one of its prime divisors.
+> Week 5 · Topic 4 of 4 · Prerequisites: [Time & Space Complexity](../../Week-1/02-Complexity/README.md), [Bit Manipulation](../03-Bit-Manipulation/README.md)
 
-The algorithm maintains an array `sieve` indexed from 2 to *n*. A value of
-`sieve[k] = 0` indicates that *k* is prime. If `sieve[k] ≠ 0`, then *k* is
-composite, and the stored value is one of its prime factors.
+---
 
-Processing proceeds from 2 upward. Each time an index *x* is found to still
-be unmarked (i.e., still prime), every multiple of *x* - namely `2x, 3x, 4x,
-...` - is marked with the factor *x*, since *x* divides each of these numbers.
+## Why This Topic Now
 
-As an illustration, for *n* = 16 the table of smallest prime factors looks
-like this (a 0 entry means the number itself is prime):
+Number theory appears everywhere in competitive programming - from cryptography to combinatorics. The tools here (prime sieves, GCD, modular exponentiation, modular inverse) come up constantly in problems where the answer must be returned modulo a large prime, or where you need to reason about divisors and prime factors efficiently. These are must-know algorithms before tackling harder graph and DP problems.
+
+---
+
+### 1. Sieve of Eratosthenes
+
+The **Sieve of Eratosthenes** is a preprocessing technique that, in a single pass over the range `[2, n]`, determines which numbers are prime and - if a number is composite - records one of its prime divisors.
+
+The algorithm maintains an array `sieve` indexed from 2 to *n*. A value of `sieve[k] = 0` indicates that *k* is prime. If `sieve[k] ≠ 0`, then *k* is composite, and the stored value is one of its prime factors.
+
+Processing proceeds from 2 upward. Each time an index *x* is found to still be unmarked (i.e., still prime), every multiple of *x* - namely `2x, 3x, 4x, ...` - is marked with the factor *x*, since *x* divides each of these numbers.
+
+As an illustration, for *n* = 16 the table of smallest prime factors looks like this (a 0 entry means the number itself is prime):
 
 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
 |  0 |  0 |  2 |  0 |  2 |  0 |  2 |  3 |  2 |  0 |  2 |  0 |  2 |  3 |  2 |
 
-#### **Complexity Discussion**
+#### Complexity Discussion
 
-For every prime *x* discovered, the marking step touches roughly `n / x`
-cells. Summing this over all candidate values of *x* gives the harmonic-like
-series:
+For every prime *x* discovered, the marking step touches roughly `n / x` cells. Summing this over all candidate values of *x* gives the harmonic-like series:
 
+```
 ∑ (n / x) for x = 2 .. n
 = n/2 + n/3 + n/4 + ... + n/n
+```
 
-A naive bound on this sum is `O(n log n)`. However, since the inner marking
-loop only runs when *x* is actually prime (composite values of *x* are
-skipped because they were already marked), the true running time is much
-smaller - it can be shown to be `O(n log log n)`, which is extremely close to
-linear in *n*.
+A naive bound on this sum is `O(n log n)`. However, since the inner marking loop only runs when *x* is actually prime (composite values of *x* are skipped because they were already marked), the true running time is much smaller - it can be shown to be `O(n log log n)`, which is extremely close to linear in *n*.
 
-The implementations below assume the boolean array starts fully set to
-`true` (i.e., everything is assumed prime until proven otherwise).
+The implementations below assume the boolean array starts fully set to `true` (i.e., everything is assumed prime until proven otherwise).
 
-#### **C++ Implementation**
+#### C++ Implementation
 
 ```cpp
 vector<bool> sieve(int n) {
@@ -55,7 +55,7 @@ vector<bool> sieve(int n) {
 }
 ```
 
-#### **Python Implementation**
+#### Python Implementation
 
 ```python
 def sieve(n):
@@ -68,7 +68,7 @@ def sieve(n):
     return is_prime
 ```
 
-#### **Java Implementation**
+#### Java Implementation
 
 ```java
 boolean[] sieve(int n) {
@@ -88,13 +88,9 @@ boolean[] sieve(int n) {
 
 ---
 
-### **2. Greatest Common Divisor and Least Common Multiple**
+### 2. Greatest Common Divisor and Least Common Multiple
 
-For two positive integers *a* and *b*, the **greatest common divisor**,
-written `gcd(a, b)`, is the largest integer dividing both of them, while the
-**least common multiple**, written `lcm(a, b)`, is the smallest positive
-integer divisible by both. As an example, `gcd(48, 18) = 6` and
-`lcm(48, 18) = 144`.
+For two positive integers *a* and *b*, the **greatest common divisor**, written `gcd(a, b)`, is the largest integer dividing both of them, while the **least common multiple**, written `lcm(a, b)`, is the smallest positive integer divisible by both. As an example, `gcd(48, 18) = 6` and `lcm(48, 18) = 144`.
 
 These two quantities are related through the identity:
 
@@ -116,7 +112,7 @@ Tracing through an example:
 gcd(48, 18) = gcd(18, 12) = gcd(12, 6) = gcd(6, 0) = 6
 ```
 
-#### **C++**
+#### C++
 
 ```cpp
 int gcd(int a, int b) {
@@ -124,14 +120,14 @@ int gcd(int a, int b) {
 }
 ```
 
-#### **Python**
+#### Python
 
 ```python
 def gcd(a, b):
     return a if b == 0 else gcd(b, a % b)
 ```
 
-#### **Java**
+#### Java
 
 ```java
 int gcd(int a, int b) {
@@ -139,9 +135,7 @@ int gcd(int a, int b) {
 }
 ```
 
-Euclid's algorithm runs in `O(log n)` time, where `n = min(a, b)`. The
-slowest case occurs when *a* and *b* are consecutive Fibonacci numbers, since
-each step reduces the pair to the next smaller Fibonacci pair, e.g.:
+Euclid's algorithm runs in `O(log n)` time, where `n = min(a, b)`. The slowest case occurs when *a* and *b* are consecutive Fibonacci numbers, since each step reduces the pair to the next smaller Fibonacci pair, e.g.:
 
 ```
 gcd(21, 13) = gcd(13, 8) = gcd(8, 5) = gcd(5, 3) = gcd(3, 2) = gcd(2, 1) = gcd(1, 0) = 1
@@ -149,20 +143,17 @@ gcd(21, 13) = gcd(13, 8) = gcd(8, 5) = gcd(5, 3) = gcd(3, 2) = gcd(2, 1) = gcd(1
 
 ---
 
-### **3. Extended Euclidean Algorithm**
+### 3. Extended Euclidean Algorithm
 
-The **Extended Euclidean Algorithm** goes a step further than the standard
-version: in addition to computing `g = gcd(a, b)`, it also finds integers
-*x* and *y* satisfying **Bézout's identity**:
+The **Extended Euclidean Algorithm** goes a step further than the standard version: in addition to computing `g = gcd(a, b)`, it also finds integers *x* and *y* satisfying **Bézout's identity**:
 
 ```
 a * x + b * y = gcd(a, b)
 ```
 
-This is particularly useful for solving linear Diophantine equations and for
-computing modular inverses when the modulus is not necessarily prime.
+This is particularly useful for solving linear Diophantine equations and for computing modular inverses when the modulus is not necessarily prime.
 
-#### **C++**
+#### C++
 
 ```cpp
 int extendedGcd(int a, int b, int &x, int &y) {
@@ -179,7 +170,7 @@ int extendedGcd(int a, int b, int &x, int &y) {
 }
 ```
 
-#### **Python**
+#### Python
 
 ```python
 def extended_gcd(a, b):
@@ -191,7 +182,7 @@ def extended_gcd(a, b):
     return g, x, y
 ```
 
-#### **Java**
+#### Java
 
 ```java
 int extendedGcd(int a, int b, int[] xy) {
@@ -210,12 +201,9 @@ int extendedGcd(int a, int b, int[] xy) {
 
 ---
 
-### **4. Modular Exponentiation (Fast Power)**
+### 4. Modular Exponentiation (Fast Power)
 
-Many problems require computing `x^n mod m` where *n* can be very large.
-Computing this directly by repeated multiplication would take `O(n)`
-multiplications, but the following identity allows it to be done in
-`O(log n)`:
+Many problems require computing `x^n mod m` where *n* can be very large. Computing this directly by repeated multiplication would take `O(n)` multiplications, but the following identity allows it to be done in `O(log n)`:
 
 ```
 x^n mod m =
@@ -223,11 +211,9 @@ x^n mod m =
     x * x^(n-1) mod m         if n is odd
 ```
 
-The key observation is that whenever *n* is even, the base is squared once
-and the exponent is halved, so the number of operations is proportional to
-the number of bits in *n*.
+The key observation is that whenever *n* is even, the base is squared once and the exponent is halved, so the number of operations is proportional to the number of bits in *n*.
 
-#### **Worked Example**
+#### Worked Example
 
 To compute `3^13 mod 7`:
 
@@ -239,7 +225,7 @@ To compute `3^13 mod 7`:
 3^13 = 3^8 * 3^4 * 3^1 → (2 * 4 * 3) mod 7 = 24 mod 7 = 3
 ```
 
-#### **C++**
+#### C++
 
 ```cpp
 long long modPow(long long base, long long exp, long long mod) {
@@ -254,7 +240,7 @@ long long modPow(long long base, long long exp, long long mod) {
 }
 ```
 
-#### **Python**
+#### Python
 
 ```python
 def mod_pow(base, exp, mod):
@@ -268,7 +254,7 @@ def mod_pow(base, exp, mod):
     return result
 ```
 
-#### **Java**
+#### Java
 
 ```java
 long modPow(long base, long exp, long mod) {
@@ -285,31 +271,23 @@ long modPow(long base, long exp, long mod) {
 
 ---
 
-### **5. Modular Multiplicative Inverse**
+### 5. Modular Multiplicative Inverse
 
-The **modular inverse** of *a* with respect to modulus *m*, denoted `a⁻¹`,
-is a number satisfying:
+The **modular inverse** of *a* with respect to modulus *m*, denoted `a⁻¹`, is a number satisfying:
 
 ```
 (a * a^-1) mod m = 1
 ```
 
-For instance, with `a = 7` and `m = 11`, we have `a⁻¹ = 8`, since
-`(7 * 8) mod 11 = 56 mod 11 = 1`.
+For instance, with `a = 7` and `m = 11`, we have `a⁻¹ = 8`, since `(7 * 8) mod 11 = 56 mod 11 = 1`.
 
-An inverse does not always exist. For `a = 2` and `m = 4`, the equation
-`(2x) mod 4 = 1` has no solution, because `2x` is always even and can never
-leave a remainder of 1 when divided by 4. In general, `a⁻¹ mod m` exists if
-and only if *a* and *m* are **coprime**, i.e., `gcd(a, m) = 1`.
+An inverse does not always exist. For `a = 2` and `m = 4`, the equation `(2x) mod 4 = 1` has no solution, because `2x` is always even and can never leave a remainder of 1 when divided by 4. In general, `a⁻¹ mod m` exists if and only if *a* and *m* are **coprime**, i.e., `gcd(a, m) = 1`.
 
-#### **General Case - Using the Extended Euclidean Algorithm**
+#### General Case - Using the Extended Euclidean Algorithm
 
-When `gcd(a, m) = 1`, applying the Extended Euclidean Algorithm to *a* and
-*m* yields integers *x* and *y* such that `a*x + m*y = 1`. Taking this
-equation modulo *m* shows that `a*x ≡ 1 (mod m)`, so *x* (reduced modulo *m*)
-is the desired inverse.
+When `gcd(a, m) = 1`, applying the Extended Euclidean Algorithm to *a* and *m* yields integers *x* and *y* such that `a*x + m*y = 1`. Taking this equation modulo *m* shows that `a*x ≡ 1 (mod m)`, so *x* (reduced modulo *m*) is the desired inverse.
 
-#### **Special Case - Prime Modulus (Fermat's Little Theorem)**
+#### Special Case - Prime Modulus (Fermat's Little Theorem)
 
 When the modulus *p* is prime, Fermat's Little Theorem states:
 
@@ -323,10 +301,9 @@ Multiplying both sides by `a⁻¹` and rearranging gives:
 a⁻¹ = a^(p-2) mod p
 ```
 
-This means the same fast modular exponentiation routine from Section 4 can
-be reused directly to compute inverses when the modulus is prime.
+This means the same fast modular exponentiation routine from Section 4 can be reused directly to compute inverses when the modulus is prime.
 
-#### **C++**
+#### C++
 
 ```cpp
 // Requires m to be prime
@@ -335,14 +312,14 @@ long long modInverse(long long a, long long m) {
 }
 ```
 
-#### **Python**
+#### Python
 
 ```python
 def mod_inverse(a, m):
     return mod_pow(a, m - 2, m)
 ```
 
-#### **Java**
+#### Java
 
 ```java
 // Requires m to be prime
@@ -353,11 +330,9 @@ long modInverse(long a, long m) {
 
 ---
 
-### **6. Euler's Totient Function**
+### 6. Euler's Totient Function
 
-**Euler's totient function**, written `φ(n)`, counts how many integers in
-the range `[1, n]` are coprime to *n*. For example, `φ(12) = 4`, since only
-1, 5, 7, and 11 share no common factor with 12.
+**Euler's totient function**, written `φ(n)`, counts how many integers in the range `[1, n]` are coprime to *n*. For example, `φ(12) = 4`, since only 1, 5, 7, and 11 share no common factor with 12.
 
 If the prime factorization of *n* is `p1^a1 * p2^a2 * ... * pk^ak`, then:
 
@@ -365,12 +340,9 @@ If the prime factorization of *n* is `p1^a1 * p2^a2 * ... * pk^ak`, then:
 φ(n) = n * (1 - 1/p1) * (1 - 1/p2) * ... * (1 - 1/pk)
 ```
 
-This function generalizes Fermat's Little Theorem (via Euler's theorem,
-`a^φ(m) ≡ 1 (mod m)` whenever *a* and *m* are coprime) and is useful whenever
-a problem requires counting coprime pairs or reducing exponents modulo a
-composite number.
+This function generalizes Fermat's Little Theorem (via Euler's theorem, `a^φ(m) ≡ 1 (mod m)` whenever *a* and *m* are coprime) and is useful whenever a problem requires counting coprime pairs or reducing exponents modulo a composite number.
 
-#### **Computing φ(n) for a single value - C++**
+#### Computing φ(n) for a single value - C++
 
 ```cpp
 long long phi(long long n) {
@@ -386,7 +358,7 @@ long long phi(long long n) {
 }
 ```
 
-#### **Computing φ(n) for a single value - Python**
+#### Computing φ(n) for a single value - Python
 
 ```python
 def phi(n):
@@ -403,7 +375,7 @@ def phi(n):
     return result
 ```
 
-#### **Sieve-based totient table - useful when φ is needed for every value up to n**
+#### Sieve-based totient table - useful when φ is needed for every value up to n
 
 ```python
 def totient_sieve(n):
@@ -417,7 +389,7 @@ def totient_sieve(n):
 
 ---
 
-## **Practice Problems**
+## Practice Problems
 
 ### Easy
 
@@ -441,3 +413,14 @@ def totient_sieve(n):
 3. [Remainder on Division by Powers of Two – Codeforces 913A](https://codeforces.com/problemset/problem/913/A)
 
 ---
+
+## Before You Move On
+
+- Can you compute `x^n mod m` in O(log n) without looking at notes?
+- Do you know when to use Fermat's Little Theorem vs Extended GCD for modular inverse?
+- Can you implement the Sieve of Eratosthenes from memory?
+- Do you understand Euler's totient function and when it's useful?
+
+---
+
+[Week 5 Overview](../README.md) | [Previous: Bit Manipulation](../03-Bit-Manipulation/README.md)

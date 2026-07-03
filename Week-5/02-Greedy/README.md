@@ -1,4 +1,14 @@
-# Greedy Algorithms 
+# Greedy Algorithms
+
+[Home](../../README.md) > [Week 5](../README.md) > Greedy Algorithms
+
+> Week 5 · Topic 2 of 4 · Prerequisites: [Sorting](../../Week-1/05-Sorting/README.md)
+
+---
+
+## Why This Topic Now
+
+You have sorted data, searched efficiently, and traversed trees. Greedy algorithms are the next mental model: make the best local choice at each step and trust that it leads to a globally optimal result. When it works, it is the most elegant and fastest approach possible. The hard part - and the skill you are building here - is knowing when and why it works.
 
 ---
 
@@ -700,7 +710,7 @@ Examples:
 # 10. Greedy vs Dynamic Programming
 
 | Greedy | DP |
-|--------|----|
+|--------|-----|
 | Fast | Slower |
 | Low memory | Higher memory |
 | Local decisions | Global search |
@@ -732,7 +742,6 @@ Try Greedy.
 
 ---
 
-
 # Final Takeaway
 
 > Greedy algorithms make the best decision available **right now**.
@@ -740,3 +749,16 @@ Try Greedy.
 They are elegant and efficient.
 
 But the hardest part is usually **proving that the greedy choice is correct**.
+
+---
+
+## Before You Move On
+
+- Can you explain the difference between Greedy and Dynamic Programming?
+- Can you prove why "earliest finish time" is optimal for activity scheduling?
+- Can you give a counterexample where greedy fails for coin change?
+- Do you know how to identify a greedy problem in a contest?
+
+---
+
+[Week 5 Overview](../README.md) | [Previous: Trees](../01-Trees/README.md) | [Next: Bit Manipulation](../03-Bit-Manipulation/README.md)

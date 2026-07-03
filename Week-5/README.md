@@ -1,18 +1,18 @@
 # Week 5 - DSA Bootcamp 2026
 
-[Home](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/README.md) > Week 5
+[Home](../README.md) > Week 5
 
 ---
 
 ## Learning Path
 
-Week 5 has **4 topics** that mark a big shift — you move from linear structures into hierarchical data, mathematical thinking, and reasoning about correctness. These topics appear constantly in interviews and competitive programming.
+Week 5 has **4 topics** that mark a big shift - you move from linear structures into hierarchical data, mathematical thinking, and reasoning about correctness. These topics appear constantly in interviews and competitive programming.
 
 ```
 Trees
     |
     |  Your first non-linear structure. A tree organises data hierarchically.
-    |  Every advanced structure — BSTs, heaps, tries, segment trees — is built
+    |  Every advanced structure - BSTs, heaps, tries, segment trees - is built
     |  on top of what you learn here.
     v
 Greedy Algorithms
@@ -29,7 +29,7 @@ Bit Manipulation
 Number Theory
     |
     |  GCD, LCM, primes, modular arithmetic. These appear everywhere in
-    |  competitive programming — from cryptography to combinatorics.
+    |  competitive programming - from cryptography to combinatorics.
     |  Sieve + modular exponentiation are must-knows.
     v
 Week 6
@@ -41,17 +41,17 @@ Week 6
 ## Topics
 
 | # | Topic | What You Will Learn | Est. Time |
-|---|-------|---------------------|-----------|
-| 1 | [Trees](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-5/Trees.md) | Hierarchical structure, node representation, traversal (search, leaf nodes, degree, parent/child printing) | 3–4 hrs |
-| 2 | [Greedy Algorithms](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-5/greedy.md) | Greedy choice property, optimal substructure, activity scheduling, coin change, interval problems | 3–4 hrs |
-| 3 | [Bit Manipulation](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-5/bit_manipulation.md) | 6 primitive bitwise operators, bitmask mechanics (get/set/clear/toggle), XOR patterns, subsequence generation, two's complement | 4–5 hrs |
-| 4 | [Number Theory](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-5/Number_Theory.md) | Sieve of Eratosthenes, GCD/LCM (Euclidean), Extended GCD, modular exponentiation, modular inverse, Euler's totient function | 4–5 hrs |
+|---|-------|---------------------|-----------| 
+| 1 | [Trees](./01-Trees/README.md) | Hierarchical structure, node representation, traversal (search, leaf nodes, degree, parent/child printing) | 3–4 hrs |
+| 2 | [Greedy Algorithms](./02-Greedy/README.md) | Greedy choice property, optimal substructure, activity scheduling, coin change, interval problems | 3–4 hrs |
+| 3 | [Bit Manipulation](./03-Bit-Manipulation/README.md) | 6 primitive bitwise operators, bitmask mechanics (get/set/clear/toggle), XOR patterns, subsequence generation, two's complement | 4–5 hrs |
+| 4 | [Number Theory](./04-Number-Theory/README.md) | Sieve of Eratosthenes, GCD/LCM (Euclidean), Extended GCD, modular exponentiation, modular inverse, Euler's totient function | 4–5 hrs |
 
 ---
 
 ## Problem Set
 
-[View Week 5 Problems](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-5/ProblemSet.md) — 32 problems across Trees, Greedy, Bit Manipulation, and Number Theory, ranging from Easy to Hard.
+[View Week 5 Problems](./Problem-Set.md) - problems across Trees, Greedy, Bit Manipulation, and Number Theory, ranging from Easy to Hard.
 
 Read the topic first, then solve the problems for that topic before moving to the next one.
 
@@ -78,10 +78,10 @@ Read the topic first, then solve the problems for that topic before moving to th
 - Can you use XOR to find the single non-duplicate element in an array without a hash map?
 - Can you compute `x^n mod m` in O(log n)?
 - Do you know when to use Fermat's Little Theorem vs Extended GCD for modular inverse?
-- Have you attempted all 32 problems in the problem set?
+- Have you attempted all problems in the problem set?
 
-If yes, you are ready. [See you in Week 6.](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-6/README.md)
+If yes, you are ready. See you in Week 6.
 
 ---
 
-[Home](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/README.md) | [Previous: Week 4](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-4/README.md) | [Next: Week 6](https://github.com/wncc/DSA-Bootcamp-2026/blob/main/Week-6/README.md)
+[Previous: Week 4](../Week-4/README.md) | [Home](../README.md)
